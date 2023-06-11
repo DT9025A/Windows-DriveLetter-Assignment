@@ -36,9 +36,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label_FileSystem = new System.Windows.Forms.Label();
             this.label_SpaceInfo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboBox_AvailableLetter = new System.Windows.Forms.ComboBox();
             this.checkBox_AssignNewVolumeLabel = new System.Windows.Forms.CheckBox();
+            this.button_RefreshVolume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +56,7 @@
             this.comboBox_DriveVolume.FormattingEnabled = true;
             this.comboBox_DriveVolume.Location = new System.Drawing.Point(116, 18);
             this.comboBox_DriveVolume.Name = "comboBox_DriveVolume";
-            this.comboBox_DriveVolume.Size = new System.Drawing.Size(465, 26);
+            this.comboBox_DriveVolume.Size = new System.Drawing.Size(361, 26);
             this.comboBox_DriveVolume.TabIndex = 1;
             this.comboBox_DriveVolume.SelectedIndexChanged += new System.EventHandler(this.comboBox_DriveVolume_SelectedIndexChanged);
             // 
@@ -110,20 +110,11 @@
             // label_SpaceInfo
             // 
             this.label_SpaceInfo.AutoSize = true;
-            this.label_SpaceInfo.Location = new System.Drawing.Point(273, 94);
+            this.label_SpaceInfo.Location = new System.Drawing.Point(196, 94);
             this.label_SpaceInfo.Name = "label_SpaceInfo";
             this.label_SpaceInfo.Size = new System.Drawing.Size(44, 18);
             this.label_SpaceInfo.TabIndex = 7;
             this.label_SpaceInfo.Text = "NULL";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(187, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 18);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "空间信息";
             // 
             // comboBox_AvailableLetter
             // 
@@ -146,14 +137,24 @@
             this.checkBox_AssignNewVolumeLabel.UseVisualStyleBackColor = true;
             this.checkBox_AssignNewVolumeLabel.CheckedChanged += new System.EventHandler(this.checkBox_AssignNewVolumeLabel_CheckedChanged);
             // 
-            // Form1
+            // button_RefreshVolume
+            // 
+            this.button_RefreshVolume.Location = new System.Drawing.Point(488, 15);
+            this.button_RefreshVolume.Name = "button_RefreshVolume";
+            this.button_RefreshVolume.Size = new System.Drawing.Size(93, 31);
+            this.button_RefreshVolume.TabIndex = 12;
+            this.button_RefreshVolume.Text = "刷新";
+            this.button_RefreshVolume.UseVisualStyleBackColor = true;
+            this.button_RefreshVolume.Click += new System.EventHandler(this.button_RefreshVolume_Click);
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 168);
+            this.Controls.Add(this.button_RefreshVolume);
             this.Controls.Add(this.checkBox_AssignNewVolumeLabel);
             this.Controls.Add(this.comboBox_AvailableLetter);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label_SpaceInfo);
             this.Controls.Add(this.label_FileSystem);
             this.Controls.Add(this.label4);
@@ -163,7 +164,7 @@
             this.Controls.Add(this.comboBox_DriveVolume);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "驱动器号分配";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -181,9 +182,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_FileSystem;
         private System.Windows.Forms.Label label_SpaceInfo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_AvailableLetter;
         private System.Windows.Forms.CheckBox checkBox_AssignNewVolumeLabel;
+        private System.Windows.Forms.Button button_RefreshVolume;
     }
 }
 

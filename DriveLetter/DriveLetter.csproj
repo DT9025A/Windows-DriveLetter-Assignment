@@ -60,6 +60,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VolumeInfo.cs" />
     <Compile Include="VolumeUtils.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

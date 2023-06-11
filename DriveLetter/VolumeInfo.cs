@@ -68,5 +68,24 @@ namespace DriveLetter
             volume.Put();
             // volume["Label"] = volumeLabel;
         }
+
+        public String GetVolumeSpaceInfo()
+        {
+            ulong Gib = 1 << 30;
+            ulong Mib = 1 << 20;
+            if (volumeCapacity > Gib)
+            {
+                return String.Format("空闲{0:F2}GiB / 共{1:F2}GiB, 使用{2:F2}%",
+                (double)VolumeFreeSpace / Gib,
+                (double)VolumeCapacity / Gib,
+                100 * (1.0 - (double)VolumeFreeSpace / VolumeCapacity));
+            } else
+            {
+                return String.Format("空闲{0:F2}MiB / 共{1:F2}MiB, 使用{2:F2}%",
+                (double)VolumeFreeSpace / Mib,
+                (double)VolumeCapacity / Mib,
+                100 * (1.0 - (double)VolumeFreeSpace / VolumeCapacity));
+            }
+        }
     }
 }

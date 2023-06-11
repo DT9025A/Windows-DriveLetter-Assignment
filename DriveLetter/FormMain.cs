@@ -120,10 +120,7 @@ namespace DriveLetter
         {
             UpdateUI(UI_Component.DRIVE_VOULME_LABEL, volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeLabel);
             UpdateUI(UI_Component.DRIVE_FILE_SYSTEM_LABEL, volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeFileSystem);
-            UpdateUI(UI_Component.DRIVE_SPACE_INFO_LABEL, String.Format("{0}GiB / {1}GiB, {2:F2}%",
-                volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeFreeSpace >> 30,
-                volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeCapacity >> 30,
-                100 * (1.0 - (double)volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeFreeSpace / volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeCapacity)));
+            UpdateUI(UI_Component.DRIVE_SPACE_INFO_LABEL, volumeInfoList[comboBox_DriveVolume.SelectedIndex].GetVolumeSpaceInfo());
         }
 
         /// <summary>
@@ -133,7 +130,7 @@ namespace DriveLetter
         /// <param name="e"></param>
         private void button_Apply_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(String.Format("确定要将驱动器号\"{0}:\"分配给驱动器\"{1}\"吗?",
+            if (MessageBox.Show(String.Format("确定要将驱动器号 “{0}:” 分配给驱动器 “{1}” 吗?",
                 comboBox_AvailableLetter.SelectedItem, comboBox_DriveVolume.SelectedItem), "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 volumeInfoList[comboBox_DriveVolume.SelectedIndex].VolumeLetter = comboBox_AvailableLetter.SelectedItem.ToString()[0];
@@ -141,6 +138,12 @@ namespace DriveLetter
                 checkBox_AssignNewVolumeLabel.Checked = false;
                 new Thread(LoadVolumeInfo).Start();
             }
+        }
+
+        private void button_RefreshVolume_Click(object sender, EventArgs e)
+        {
+            //Thread.Sleep(10000);
+            new Thread(LoadVolumeInfo).Start();
         }
     }
 }
